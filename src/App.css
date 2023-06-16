@@ -1,0 +1,41 @@
+body {
+    color: white;
+    background-color: #22252e;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.img {
+    max-height: 300px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    margin-left: 10px;
+}
+
+.btn-dark {
+    margin-top: 50px;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+    content: "📂";
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    display: block;
+    background-color: #22252e;
+}
+
+#file-upload-button,
+.custom-file-input,
+.custom-file-label,
+.custom-file-label::after {
+    cursor: pointer;
+}
