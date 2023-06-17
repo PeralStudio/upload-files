@@ -17,7 +17,6 @@ function App() {
     return (
         <div className="App">
             <Toaster />
-            {!image && <h1 style={{ marginTop: "100px" }}>Subir Archivo</h1>}
             <InputImage />
             <div style={{ display: "contents" }}>
                 <ImageUploaded />

@@ -1,5 +1,6 @@
 import { useStore } from "../store/store";
 import toast from "react-hot-toast";
+import logo from "../assets/logo-upload.png";
 
 const InputImage = () => {
     const { image } = useStore((state) => ({
@@ -94,27 +95,31 @@ const InputImage = () => {
     };
 
     return (
-        <div className="custom-file" style={{ width: "350px" }}>
-            {!image && (
-                <input
-                    type="file"
-                    name="file"
-                    placeholder={"Buscar imagen"}
-                    onChange={uploadImage}
-                    className="custom-file-input"
-                    id="inputGroupFile01"
-                />
-            )}
-            {!image && (
-                <label
-                    className="custom-file-label"
-                    htmlFor="inputGroupFile01"
-                    style={{ marginTop: "20px" }}
-                >
-                    Buscar Archivo
-                </label>
-            )}
-        </div>
+        <>
+            <img src={logo} alt="imagen" style={{ width: "10rem", marginTop: "2rem" }} />
+            {!image && <h1 style={{ marginTop: "4rem" }}>Subir Archivo</h1>}
+            <div className="custom-file" style={{ width: "350px" }}>
+                {!image && (
+                    <input
+                        type="file"
+                        name="file"
+                        placeholder={"Buscar imagen"}
+                        onChange={uploadImage}
+                        className="custom-file-input"
+                        id="inputGroupFile01"
+                    />
+                )}
+                {!image && (
+                    <label
+                        className="custom-file-label"
+                        htmlFor="inputGroupFile01"
+                        style={{ marginTop: "20px" }}
+                    >
+                        Buscar Archivo
+                    </label>
+                )}
+            </div>
+        </>
     );
 };
 
