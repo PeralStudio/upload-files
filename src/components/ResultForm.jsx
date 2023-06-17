@@ -1,17 +1,16 @@
 import { useStore } from "../store/store";
 import toast from "react-hot-toast";
+import Button from "@mui/material/Button";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const ResultForm = () => {
     const { image } = useStore((state) => ({
         image: state.image
     }));
 
-    const copyLink = (e) => {
-        e.preventDefault();
+    const copyLink = () => {
+        navigator.clipboard.writeText(image);
 
-        const [link] = e.target.elements;
-        link.select();
-        document.execCommand("copy");
         toast.success("Copiado al portapeles", {
             duration: 3000,
             position: "top-center",
@@ -41,10 +40,21 @@ const ResultForm = () => {
                     type="text"
                     name="link"
                     value={image}
-                    style={{ width: "500px", marginTop: "50px" }}
+                    style={{ width: "500px", marginTop: "40px" }}
                 />
             )}
-            {image && <button className="btn btn-primary">Copiar</button>}
+            {image && (
+                <Button
+                    onClick={() => copyLink()}
+                    style={{ marginLeft: "1rem", marginBottom: "0.2rem" }}
+                    variant="contained"
+                    size="small"
+                    color="success"
+                    endIcon={<ContentCopyIcon />}
+                >
+                    Copiar
+                </Button>
+            )}
         </form>
     );
 };
