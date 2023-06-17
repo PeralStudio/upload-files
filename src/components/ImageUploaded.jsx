@@ -1,5 +1,8 @@
 import { FidgetSpinner } from "react-loader-spinner";
 import { useStore } from "../store/store";
+import { toast } from "react-hot-toast";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const ImageUploaded = () => {
     const { loading, image, type, archiveName } = useStore((state) => ({
@@ -29,7 +32,18 @@ const ImageUploaded = () => {
             ) : (
                 <>
                     {type.includes("image") && image && (
-                        <img className="img" src={image} alt="img-uploaded" />
+                        <>
+                            <PhotoProvider>
+                                <PhotoView src={image}>
+                                    <img
+                                        className="img"
+                                        src={image}
+                                        alt="img-uploaded"
+                                        style={{ cursor: "pointer" }}
+                                    />
+                                </PhotoView>
+                            </PhotoProvider>
+                        </>
                     )}
                     {type.includes("video") && image && (
                         <video
