@@ -1,5 +1,4 @@
 import { Toaster } from "react-hot-toast";
-import { useStore } from "./store/store";
 
 import InputImage from "./components/InputImage";
 import ImageUploaded from "./components/ImageUploaded";
@@ -10,10 +9,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
-    const { image } = useStore((state) => ({
-        image: state.image
-    }));
-
     return (
         <div className="App">
             <Toaster />
