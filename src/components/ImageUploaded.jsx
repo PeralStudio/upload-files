@@ -1,6 +1,5 @@
 import { FidgetSpinner } from "react-loader-spinner";
 import { useStore } from "../store/store";
-import { toast } from "react-hot-toast";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
